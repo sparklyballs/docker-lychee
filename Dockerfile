@@ -20,6 +20,11 @@ RUN \
 	php5-mysql \
 	php5-zip 
 	
+# install build packages
+RUN \
+ apk add --no-cache --virtual=build-dependencies \
+ 	curl \
+	
 # install lychee
 RUN \
 
@@ -31,6 +36,12 @@ RUN \
  tar xf \
  /tmp/lychee.tar.gz -C \
 	/usr/share/webapps/lychee --strip-components=1 && \
+	
+# cleanup
+ apk del --purge \
+	build-dependencies && \
+ rm -rf \
+	/tmp/*
 	
 # add local files
 COPY root/ /
