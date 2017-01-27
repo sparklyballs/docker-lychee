@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ARG LYCHEE_VERSION="3.1.5"
+ARG LYCHEE_VERSION=3.1.5
 
 # install packages
 RUN \
